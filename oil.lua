@@ -279,8 +279,10 @@ Btn9.MouseButton1Click:connect(function()
 end)
 
 Btn10.MouseButton1Click:connect(function()
-    ReplicatedStorage.ACS_Engine.Events.Reload:destroy()
     ReplicatedStorage.BulletFireSystem.GunReload:destroy()
+    local gunReload = Instance.new("Part")
+    gunReload.Name = "GunReload"
+    gunReload.Parent = ReplicatedStorage.BulletFireSystem
     while true do
         wait(0.0)
         for k,v in pairs(Player.Character:GetChildren()) do
