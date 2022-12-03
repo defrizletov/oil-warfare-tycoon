@@ -179,9 +179,9 @@ Btn10.Position = UDim2.new(0.152380958, 0, 0.79, 0)
 Btn10.Size = UDim2.new(0, 130, 0, 35)
 Btn10.Font = Enum.Font.Highway
 Btn10.FontSize = Enum.FontSize.Size28
-Btn10.Text = "Inf. Ammo (Works with one gun)"
+Btn10.Text = "Inf. Ammo"
 Btn10.TextColor3 = Color3.new(1, 1, 1)
-Btn10.TextSize = 16
+Btn10.TextSize = 20
 Btn10.TextStrokeTransparency = 0
 Btn10.TextWrapped = true
 
