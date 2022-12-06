@@ -91,12 +91,12 @@ TycoonsSection:AddButton({
     end
 });
 
-for _, v in pairs(Workspace.Tycoon.Tycoons:GetChildren()) do
-    if(v.Name ~= Player.leaderstats.Team.Value) then
+for _, v in pairs({"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Kilo","Lima","Omega","Tango","Victor","Zulu"}) do
+    if(v ~= Player.leaderstats.Team.Value) then
         TycoonsSection:AddButton({
-            Name = v.Name,
+            Name = v,
             Callback = function ()
-                Player.Character.HumanoidRootPart.CFrame = v.Essentials.Spawn.CFrame;
+                Player.Character.HumanoidRootPart.CFrame = Worskpace.Tycoon.Tycoons[v].Essentials.Spawn.CFrame;
             end 
         });
     end;
@@ -137,9 +137,32 @@ TeleportsTab:AddButton({
     end
 });
 
+local playersTable = {};
+
+for _,v in pairs(Workspace:GetChildren()) do
+    for z, d in pairs(v:GetChildren()) do
+        if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name); end;
+    end;
+end;
+
+local playerDropdown = TeleportsTab:AddDropdown({
+    Name = "Players",
+    Options = playersTable,
+    Callback = function (v)
+        Player.Character.HumanoidRootPart.CFrame = Workspace[v].Head.CFrame;
+    end
+});
+
 OrionLib:Init();
 
 while true do
     wait(0);
+    playersTable = {};
+    for _,v in pairs(Workspace:GetChildren()) do
+        for z, d in pairs(v:GetChildren()) do
+            if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name); end;
+        end;
+    end;
+    playerDropdown:Refresh(playersTable, true);
     Player.Character.Humanoid.WalkSpeed = speedHackValue;
 end;
