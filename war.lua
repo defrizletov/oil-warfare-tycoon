@@ -96,7 +96,7 @@ for _, v in pairs({"Alpha","Bravo","Charlie","Delta","Echo","Foxtrot","Kilo","Li
         TycoonsSection:AddButton({
             Name = v,
             Callback = function ()
-                Player.Character.HumanoidRootPart.CFrame = Worskpace.Tycoon.Tycoons[v].Essentials.Spawn.CFrame;
+                Player.Character.HumanoidRootPart.CFrame = Workspace.Tycoon.Tycoons[v].Essentials.Spawn.CFrame;
             end 
         });
     end;
