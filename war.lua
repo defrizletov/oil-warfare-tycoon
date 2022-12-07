@@ -141,7 +141,7 @@ local playersTable = {};
 
 for _,v in pairs(Workspace:GetChildren()) do
     for z, d in pairs(v:GetChildren()) do
-        if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name); end;
+        if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name.." ("..Players[v.Name].leaderstats.Team.Value..")"); end;
     end;
 end;
 
@@ -160,7 +160,7 @@ while true do
     playersTable = {};
     for _,v in pairs(Workspace:GetChildren()) do
         for z, d in pairs(v:GetChildren()) do
-            if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name); end;
+            if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name.." ("..Players[v.Name].leaderstats.Team.Value..")"); end;
         end;
     end;
     playerDropdown:Refresh(playersTable, true);
