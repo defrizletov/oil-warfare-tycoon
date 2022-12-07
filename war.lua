@@ -46,13 +46,16 @@ HacksSection:AddButton({
 HacksSection:AddButton({
 	Name = "Anti-Riot Shield",
 	Callback = function ()
-        for k,v in pairs(Players:GetChildren()) do
-            if(v.Name ~= Player.Name) then
-                for _,l in pairs(Workspace[v.Name]:GetChildren()) do
-                    if(l.Name == "SRiot Shield" or l.Name == "Riot Shield") then l:destroy(); end;
-                end;
-            end;
-        end;
+		while true do
+			wait(0);
+			for k,v in pairs(Players:GetChildren()) do
+				if(v.Name ~= Player.Name) then
+					for _,l in pairs(Workspace[v.Name]:GetChildren()) do
+						if(l.Name == "SRiot Shield" or l.Name == "Riot Shield") then l:destroy(); end;
+					end;
+				end;
+			end;
+		end;
 	end    
 })
 
@@ -157,6 +160,7 @@ OrionLib:Init();
 
 while true do
     wait(0);
+	Workspace[Player.Name].Humanoid.WalkSpeed = speedHackValue;
     playersTable = {};
     for _,v in pairs(Workspace:GetChildren()) do
         for z, d in pairs(v:GetChildren()) do
@@ -164,5 +168,4 @@ while true do
         end;
     end;
     playerDropdown:Refresh(playersTable, true);
-    Workspace[Player.Name].Humanoid.WalkSpeed = speedHackValue;
 end;
