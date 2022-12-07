@@ -164,5 +164,5 @@ while true do
         end;
     end;
     playerDropdown:Refresh(playersTable, true);
-    Player.Character.Humanoid.WalkSpeed = speedHackValue;
+    Workspace[Player.Name].Humanoid.WalkSpeed = speedHackValue;
 end;
