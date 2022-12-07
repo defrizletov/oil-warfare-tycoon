@@ -158,13 +158,21 @@ local playerDropdown = TeleportsTab:AddDropdown({
 
 OrionLib:Init();
 
+local function getSpeedHackValue ()
+    return speedHackValue;
+end;
+
 while true do
     wait(0);
-	Workspace[Player.Name].Humanoid.WalkSpeed = speedHackValue;
+	Workspace[Player.Name].Humanoid.WalkSpeed = getSpeedHackValue();
     playersTable = {};
     for _,v in pairs(Workspace:GetChildren()) do
         for z, d in pairs(v:GetChildren()) do
-            if(v.Name ~= Player.Name and d.Name == "Humanoid") then table.insert(playersTable, v.Name.." ("..Players[v.Name].leaderstats.Team.Value..")"); end;
+            if(v.Name ~= Player.Name and d.Name == "Humanoid") then
+                for b, a in pairs(Players[v.Name]:GetChildren()) do
+                    if(a.Name == "leaderstats") then table.insert(playersTable, v.Name.." ("..a.Team.Value..")"); end;
+                end;
+            end;
         end;
     end;
     playerDropdown:Refresh(playersTable, true);
